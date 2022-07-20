@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="model"
+            type="com.scribd.presentationia.modules.featured_document.FeaturedDocumentModuleViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="wrap_content">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/headerTitle"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:text="@{model.title}"
+                />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/thumbnailLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:onClick="@{() -> model.onClickThumb()}"
+                    >
+
+                    <com.scribd.presentation.thumbnail.ThumbnailView
+                        android:id="@+id/thumbnail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:importantForAccessibility="no"/>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/editorialBlurbContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/thumbnailLayout">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editorialBlurbQuoteText"
+                        android:text="@{model.blurbQuote}"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editorialBlurbParagraphText"
+                        android:layout_below="@id/editorialBlurbQuoteText"
+                        android:maxLines="5"
+                        android:text="@{model.blurbParagraph}"/>
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

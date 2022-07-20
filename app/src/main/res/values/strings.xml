@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="key_insights_from_author_snapshot">Key insights from %1$s\'s %2$s</string>
+    <string name="mylibrary_finished_audiobook">Finished Audiobook</string>
+    <string name="length_and_read_time_caption" translatable="false">%1$s | %2$s</string>
+</resources>

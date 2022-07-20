@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.scribd.presentation.thumbnail.ThumbnailView
+        android:id="@+id/itemThumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:duplicateParentState="true"
+        android:importantForAccessibility="no"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/documentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        app:layout_constraintLeft_toLeftOf="@id/itemThumbnail"
+        app:layout_constraintRight_toRightOf="@id/itemThumbnail"
+        tools:text="Book Title"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/documentSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        app:layout_constraintLeft_toLeftOf="@id/itemThumbnail"
+        app:layout_constraintRight_toRightOf="@id/itemThumbnail"
+        app:layout_constraintTop_toBottomOf="@id/documentTitle"
+        tools:text="Author name" />
+
+    <RatingBar
+        android:id="@+id/starRatingAverage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@id/itemThumbnail"
+        app:layout_constraintTop_toBottomOf="@id/documentSubtitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

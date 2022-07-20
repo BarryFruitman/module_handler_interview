@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <!-- wrap this RelativeLayout in a LinearLayout because of this issue:
+    http://stackoverflow.com/questions/15993030/child-of-relativelayout-is-not-filling-the-height-of-the-relativelayout
+    -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground">
+
+        <com.scribd.presentation.view.DocumentRestrictionsView
+            android:id="@+id/listItemDocumentRestrictions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Available 11/11/17"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/availableIndicator"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/listItemDocumentRestrictions">
+
+            <com.scribd.presentation.view.ScribdImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listItemButton"/>
+
+            <com.scribd.presentation.view.SaveIcon
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/saveForLaterIv"
+                app:srcCompat="@drawable/ic_save_for_later_1px"/>
+
+        </FrameLayout>
+
+        <com.scribd.presentation.view.ScribdImageView
+            android:id="@+id/listItemIcon"
+            android:layout_width="@dimen/list_item_document_offline_icon_size"
+            android:layout_height="@dimen/list_item_document_offline_icon_size"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_store_offline_small"/>
+
+        <com.scribd.presentation.thumbnail.ThumbnailView
+            android:id="@+id/thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/listItemDocumentRestrictions"
+            android:layout_gravity="center"
+            android:duplicateParentState="true"
+            android:importantForAccessibility="no"/>
+
+        <LinearLayout
+            android:id="@+id/cardMetadataContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/thumbnail"
+            android:layout_alignTop="@id/thumbnail"
+            android:layout_toRightOf="@id/thumbnail"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/summaryOfPrefix"
+                android:maxLines="1"
+                tools:text="Snapshot of Charles Duhigg's"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                tools:text="Content Title"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/author"
+                android:gravity="left"
+                tools:text="Content Author"/>
+
+            <com.scribd.presentation.view.UploadedByView
+                android:id="@+id/uploadedBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <!-- only one of FinishedStateView or Caption
+            is visible at a given time -->
+            <com.scribd.presentation.view.FinishedStateView
+                android:id="@+id/finishedStateView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/caption"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
