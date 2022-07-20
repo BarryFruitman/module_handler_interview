@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_document_offline_icon_size">250</dimen>
+    <dimen name="document_card_thumbnail_height">150</dimen>
+    <dimen name="document_card_thumbnail_width">100</dimen>
+</resources>
